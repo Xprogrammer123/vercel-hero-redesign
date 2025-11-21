@@ -2,6 +2,25 @@ import { useEffect, useRef } from 'react';
 import { Renderer, Triangle, Program, Mesh } from 'ogl';
 import './Prism.css';
 
+type PrismProps = {
+  height?: number;
+  baseWidth?: number;
+  animationType?: 'rotate' | 'hover' | '3drotate';
+  glow?: number;
+  offset?: { x: number; y: number };
+  noise?: number;
+  transparent?: boolean;
+  scale?: number;
+  hueShift?: number;
+  colorFrequency?: number;
+  hoverStrength?: number;
+  inertia?: number;
+  bloom?: number;
+  suspendWhenOffscreen?: boolean;
+  timeScale?: number;
+  className?: string; 
+};
+
 const Prism = ({
   height = 3.5,
   baseWidth = 5.5,
@@ -17,9 +36,10 @@ const Prism = ({
   inertia = 0.05,
   bloom = 1,
   suspendWhenOffscreen = false,
-  timeScale = 0.5
-}) => {
-  const containerRef = useRef(null);
+  timeScale = 0.5,
+  className 
+}: PrismProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;

@@ -54,7 +54,9 @@ export default function Page() {
 
         {/* Prism Background Element */}
         <div className="absolute bottom-0 left-0 right-0 h-[400px] w-full overflow-hidden -z-10 flex items-end justify-center">
+          
           <Prism className="w-full max-w-4xl" />
+          
         </div>
       </div>
     </div>
